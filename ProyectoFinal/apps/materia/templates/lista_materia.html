@@ -1,0 +1,33 @@
+{% extends "template_base.html" %}
+{% load static %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/lista_materias.css' %}">
+{% endblock %}
+{% block title %} Lista de Materias {% endblock %}
+
+
+{% block content %}
+   
+    <section class="SeccionIfts">
+        <h1>Lista de Materias</h1>
+        <div class="ifts">
+
+        {% for materia in materias %}
+
+            <div>
+                <div class="tarjetaIfts">
+                    <div class="divBotonesTarjeta">
+                        <h2><b>{{ materia.nombre }}</b></h2>
+                        <p>Pertenece a {{materia.carrera}} </p>
+                        <a href="{% url 'profesores_materia' materia_id=materia.id %}"><button id="btnIftsProfesores">Profesores</button></a>
+                        <a href="{% url 'opiniones_por_entidad' model_name='materia' entity_id=materia.id %}"><button id="btnIftsOpiniones">Opiniones</button></a>
+                        <div>Puntaje</div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+        </div>
+    </section>
+
+{% endblock %}

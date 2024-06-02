@@ -1,0 +1,41 @@
+{% extends "template_base.html" %}
+{% load static %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/feedback_box.css' %}">
+{% endblock %}
+{% block title %} Feedback {% endblock %}
+
+
+{% block content %}
+    <h1>Feedback</h1>
+    <p>Dejanos tu opinion</p>
+    <form method="post">
+        <div class="formulario-feedback">
+            <table>
+                {% csrf_token %}
+
+                <!-- mensajes -->
+                {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <p style="color:aliceblue ">{{ message }}</p>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+                {% endif %}
+
+                {{ form.as_table }}
+                
+            </table>
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+
+
+
+
+
+
+
+
+{% endblock %}

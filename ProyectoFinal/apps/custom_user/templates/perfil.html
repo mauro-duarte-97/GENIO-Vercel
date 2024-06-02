@@ -1,0 +1,35 @@
+{% extends "template_base.html" %}
+{% load static %}
+{% block title %} Perfil {% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/perfil.css' %}">
+{% endblock %}
+{% block content %}
+
+   
+    <div class="contenedor-flex">
+        <div class="imgProfileEdit">
+            <img src="{% if usuario.img_perfil %}{{ usuario.img_perfil.url }}{% else %}{% static 'imagenes/Iconos/UserProfile.png' %}{% endif %}" alt="Imagen de perfil">
+                        <h2>Hola!, {{ usuario.nombre }}</h2>
+        </div>
+        <div class="perfilContainer">
+            <div class="textoPerfilUsuario">
+                <h1>Mi Perfil</h1>
+            </div>           
+            <menu class="menuPerfilUsuario">
+                <a href="{% url 'editar_usuario' usuario.id %}"><button type="button" class="btn-editar">Editar Usuario</button></a>
+                <ul>
+                    <li>Nombre:{{ usuario.nombre }}</li>
+                    <li>Email: {{ usuario.email }}</li>
+                    <li>Edad: {{usuario.fecha_de_nacimiento}}</li>
+                </ul>
+            </menu>
+            <a href="{% url 'eliminar_usuario' usuario.id %}">
+                <button type="button" class="btn-eliminar">Eliminar Usuario</button>
+            </a>
+        </div>
+    </div>
+    
+    
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "template_base.html" %}
+{% load static %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/querys.css' %}">
+{% endblock %}
+{% block title %}Resultados de la búsqueda{% endblock %}
+{% block content %}
+    <h1>Resultados de la búsqueda</h1>
+    {% if query %}
+        <p>Resultados para: <strong>{{ query }}</strong></p>
+        <h2>Institutos</h2>
+        <ul>
+            {% for instituto in results.institutos %}
+                <li>{{ instituto.nombre }}</li>
+            {% empty %}
+                <li>No se encontraron institutos.</li>
+            {% endfor %}
+        </ul>
+        <h2>Carreras</h2>
+        <ul>
+            {% for carrera in results.carreras %}
+                <li>{{ carrera.nombre }}</li>
+            {% empty %}
+                <li>No se encontraron carreras.</li>
+            {% endfor %}
+        </ul>
+        <h2>Materias</h2>
+        <ul>
+            {% for materia in results.materias %}
+                <li>{{ materia.nombre }}</li>
+            {% empty %}
+                <li>No se encontraron materias.</li>
+            {% endfor %}
+        </ul>
+        <h2>Profesores</h2>
+        <ul>
+            {% for profesor in results.profesores %}
+                <li>{{ profesor.nombre }}</li>
+            {% empty %}
+                <li>No se encontraron profesores.</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Por favor, ingresa un término de búsqueda.</p>
+    {% endif %}
+{% endblock %}

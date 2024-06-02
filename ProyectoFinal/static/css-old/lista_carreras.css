@@ -1,0 +1,140 @@
+.SeccionIfts{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.ifts{
+    min-height: 20vh;
+    max-height: 55vh;
+    display: grid;
+    width: 65vw;
+    gap: 15px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;  
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(15px);
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+
+/* .tarjetaIfts{ 
+   
+    height: 20vh;
+    display: flex;
+    flex: 0 0 24%; 
+    background-color: #F2D0A9;
+    border-radius: 10px;
+    margin: 10px auto;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+} 
+
+.tarjetaIfts:hover {
+    transform: scale(1.05);
+}
+
+.imgTarjetaIfts{
+    width: 45%;
+    height: 15vh;
+    margin: auto;
+    background-color: aquamarine;
+    border-radius: 10px;
+}
+
+.imgTarjetaIfts img{
+    width: 100%;
+}
+
+.divBotonesTarjeta{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    gap: 2px;
+    justify-content: center;
+    align-content: space-around;
+    }
+
+.divBotonesTarjeta button{
+    border-radius: 5px;
+    background-color: zrgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(15px);
+    font-size: 100%;
+}
+ */
+
+ /* Estilos de gepeto */
+.tarjetaIfts {
+    width: 300px; /* Ajusta el ancho según tus necesidades */
+    margin: 20px; /* Agrega espacio entre las tarjetas */
+    border: 1px solid #ccc; /* Borde para delimitar la tarjeta */
+    border-radius: 10px; /* Redondea las esquinas */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+    overflow: hidden; /* Permite que la imagen se recorte dentro del contenedor */
+  }
+
+  
+  .imgTarjetaIfts {
+    width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
+    height: 200px; /* Ajusta la altura según tus necesidades */
+    object-fit: cover; /* La imagen se ajusta al contenedor manteniendo la proporción */
+  }
+  
+  .imgTarjetaIfts img {
+    width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+    height: auto; /* La altura se ajusta automáticamente para mantener la proporción */
+  }
+  .divBotonesTarjeta {
+    padding: 15px; /* Agrega espacio interno al contenedor */
+  }
+
+  .divBotonesTarjeta h2 {
+    margin: 0; /* Elimina el margen superior por defecto */
+    font-size: 18px; /* Ajusta el tamaño de la fuente */
+    font-weight: bold; /* Texto en negrita */
+  }
+
+  .divBotonesTarjeta p {
+    margin: 5px 0; /* Espacio entre párrafos */
+    font-size: 14px; /* Ajusta el tamaño de la fuente */
+    color: #666; /* Color gris claro */
+  }
+
+  #btnIftsOpiniones, #btnIftsProfesores, #btnIftsMaterias {
+    background-color: #007bff; /* Color azul */
+    color: white; /* Texto blanco */
+    padding: 10px 20px; /* Espacio interno del botón */
+    border: none; /* Elimina el borde por defecto */
+    border-radius: 5px; /* Redondea las esquinas */
+    cursor: pointer; /* Indicador de que se puede hacer clic */
+    transition: background-color 0.3s ease; /* Animación al pasar el cursor */
+  }
+  
+  #btnIftsOpiniones:hover, #btnIftsProfesores:hover, #btnIftsMaterias:hover  {
+    background-color: #0056b3; /* Color azul más oscuro al pasar el cursor */
+  }
+
+  .divBotonesTarjeta .puntaje {
+  /* Agrega estilos para el puntaje, como por ejemplo: */
+  float: right; /* Coloca el puntaje a la derecha */
+  font-size: 16px; /* Ajusta el tamaño de la fuente */
+  color: #333; /* Color gris oscuro */
+}
+
+
+  /* fin estilos gepeto */
+
+.ulIfts{
+    list-style: none;
+    text-decoration: none;
+}

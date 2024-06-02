@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'imagenes/Iconos/genioLogo.ico' %}">
+    {% block extra_head %}
+
+    {% endblock %}
+
+    <title>{% block title %} {% endblock %}</title>
+  </head>
+
+  <body>
+    <main>
+        <section class="loginHome">  
+            <div class="encabezado">
+                <div class="logoLogin">
+                    <img id="imgLogin1" src="{% static 'imagenes/Logo/genioLogo.png' %}" alt="">
+                    <img id="imgLogin2" src="{% static 'imagenes/Logo/genioLogo2.png' %}" alt="">
+                </div>
+
+                <div class="textoLogin">
+                    <h1>G.E.N.I.O</h1>
+                    <h2>Guía de Estudiantes Nuevos de IFTS para Orientación</h2>
+                </div>
+            </div>
+
+            {% block content %}
+
+            {% endblock %}
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,117 @@
+.SeccionIfts{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    /* border: 5px solid red; */
+    justify-content: center;
+    padding-top: 50px;
+
+}
+.textoSeccion{
+    width: 30%;
+    background-color: blueviolet;
+    border-radius: 15px;
+    color: white;
+}
+.iftsYopiniones{
+    width: 100%;
+    /* border: 5px solid green; */
+    display: flex;
+    flex-direction: column;
+}
+
+.ifts{
+    display: grid;
+    width: 70%;
+    border-radius: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+    grid-gap: 20px;  
+    text-align: center;
+    justify-content: center;
+    /* border: 5px solid blue; */
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 500px;
+    margin: auto;
+}
+.ulIfts{
+    width: auto;
+    height: auto;
+    list-style: none;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    /* border: 1px solid yellow; */
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.tarjetaIfts{ 
+   width: 150px;
+   height: 250px;
+   
+    display: flex;
+    background-color: #043652;
+    border-radius: 10px;
+    flex-direction: column;
+    margin: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    /* border: 1px solid green; */
+}
+
+.tarjetaIfts:hover {
+    transform: scale(1.05);
+}
+
+.imgTarjetaIfts{
+    width: 100px;
+    height: 100px;
+    margin: auto;
+  
+    border-radius: 10px;
+}
+
+.imgTarjetaIfts img{
+    width: 80px;
+    height: 80px;
+}
+
+.divBotonesTarjeta{
+    width: 75px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    gap: 2px;
+    justify-content: center;
+    align-content: space-around;
+    }
+
+.divBotonesTarjeta button{
+    border-radius: 5px;
+    background-color: zrgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(15px);
+    font-size: 100%;
+
+}
+
+.seccionOpiniones{
+    height: 100%;
+    border: 5px solid violet;
+    height: 200px;
+}
+
+
+@media (max-width: 925px){
+  .SeccionIfts{
+    flex-direction: column;
+  }  
+} 

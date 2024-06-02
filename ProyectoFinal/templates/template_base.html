@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Estudiar en IFTS la carrera que se desee con pleno conocimiento a base de reseñas y opiniones de la institucion, carrera, materias y profesores">
+        <meta name="keywords" content="I.F.T.S reseñas, ayuda a los estudiantes con su decision de que institucion, carrera, materia o profesor elegir">
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'imagenes/Iconos/genioLogo.ico' %}">
+
+        <link rel="stylesheet" href="{% static 'css/template_base.css' %}">
+        <link rel="stylesheet" href="{% static 'css/querys.css' %}">
+        <link rel="stylesheet" href="{% static 'css/menu_profile.css' %}">
+
+        {% block extra_head %}
+
+        {% endblock %}
+
+        <title>{% block title %} {% endblock %}</title>
+    </head>
+
+    <body>
+        <!-- header.html -->
+        <header>
+             <div class="menuGlobal">
+                <div class="logo">
+                    <a href="{% url 'user_home'%}" type="image/png">
+                        <img id="logoUserHome1" src="{% static 'imagenes/Logo/genioLogo.png' %}" alt="Logo">
+                        <img id="logoUserHome2" src="{% static 'imagenes/Logo/genioLogo2.png' %}" alt="Logo">
+                    </a>
+                   
+                </div>
+                
+                <nav class="menuDiv">
+                    <ul>
+                        <li><a href="{% url 'lista_instituciones'%}">Instituciones</a></li>
+                                
+                        <li><a href="{% url 'lista_carreras'%}">Carreras</a></li>
+                        
+                        <li><a href="{% url 'lista_materias'%}">Materias</a></li>
+
+                        <li><a href="{% url 'lista_profesores'%}">Docentes</a></li>    
+                    </ul>
+                </nav>
+                <!-- Otras opciones de navegación -->                    
+
+                <!-- Search box -->
+                <form action="{% url 'search_entity' %}" method="get" class="search">
+                    {% csrf_token %}
+                    <input type="text" name="query" placeholder="Buscar..." required>
+                    <!-- <button type="submit"  class="search-btn" >Buscar</button> -->
+                </form>
+        
+ <!-- ################ NAVEGADOR MOVIL ######################## -->
+ 
+                <details>
+                    <summary class="divSummary"></summary>
+                
+                    <nav class="menuMobile">
+                        <li><a href="{% url 'lista_instituciones'%}">Instituciones</a></li>
+                                
+                        <li><a href="{% url 'lista_carreras'%}">Carreras</a></li>
+                        
+                        <li><a href="{% url 'lista_materias'%}">Materias</a></li>
+
+                        <li><a href="{% url 'lista_profesores'%}">Docentes</a></li> 
+                    </nav>
+                </details>
+  
+<!-- ################ FIN NAVEGADOR MOVIL ######################## -->
+        
+
+                <div>
+                <!-- IMG DE PERFIL -->           
+                    {% if request.user.is_authenticated %}
+                        <nav class="nav-menu-principal">
+                            <img src="{{ request.user.img_perfil.url }}" alt="profile" class="img_perfil">
+                            <div class="div-menu-desplegable">                        
+                                <!-- class="menu-perfil" -->
+                                <ul id="menu_desplegable">
+                                    <li><a href="{% url 'perfil_usuario' pk=request.user.id %}">Mi perfil</a></li>
+                                    <li><a href="{% url 'feedback' %}">Enviar Feedback</a></li>
+                                    <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
+                                </ul>
+                            </div>
+                    </nav>               
+                    {% else %}
+                        <!-- Si el usuario no está autenticado, mostrar un enlace de inicio de sesión -->
+                        <a href="{% url 'login' %}">Iniciar sesión</a>
+                    {% endif %}
+                </div>
+            </div>
+            
+        </header>
+
+        <div class="bannerVideo">
+            <video muted autoplay loop src="{% static 'imagenes/Portada/triangulosAzules.mp4' %}" ></video>
+        </div>
+
+    <!-- ################ FIN HEADER ############################## -->
+
+    <!-- ################ CONTENIDO ############################## -->
+
+    <div id="contenedor-principal">
+
+        {% block content %}
+
+        {% endblock %}
+
+    </div> 
+
+    <!-- ################ FIN CONTENIDO ############################## -->
+
+
+<!-- ################################ FOOTER ######################################## -->
+        <footer>        
+            <div class="footer-section">
+                <p>¡Sumate a la comunidad IFTS!
+                Un sitio donde se informa, opina y discute informacion relevante a los IFTS</p>
+            </div>
+            <div class="footer-section2">
+                <p>Seguinos en todas nuestras redes:</p>
+                <div class="social-icons">
+                    <ul class="listaRedes">
+                        <li><a href="https://discord.gg/3EkEuBr5"><img src="{% static 'imagenes/Iconos/discord-ico.png' %}" alt="Discord-ico"></a></li>
+                        <li><a href="https://www.facebook.com/profile.php?id=61558876926447&notif_id=1714537805990917&notif_t=follower_invite_accept&ref=notif"><img src="{% static 'imagenes/Iconos/facebook-ico.png' %}" alt="Facebook-ico"></a></li>
+                        <li><a href="mailto:m.e.b.d.0904@ifts18.edu.ar?subject=Consulta%20desde%20la%20Web&body=Hola,%20vi%20tu%20sitio%20web%20y%20me%20gustaría%20saber..."><img src="{% static 'imagenes/Iconos/gmail-ico.png' %}" alt="Gmail-ico"></a></li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+        </div> 
+        <div class="footerContainer">
+            <video muted autoplay loop src="{% static 'imagenes/Portada/triangulosAzules.mp4' %}" ></video>
+        </div> 
+        </footer>
+    </body>
+</html>

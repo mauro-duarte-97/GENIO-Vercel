@@ -1,0 +1,108 @@
+{% extends "template_base.html" %}
+{% load static %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/userHome.css' %}">
+    <script src="{% static 'js/maps.js' %}" defer></script>
+{% endblock %}
+
+<!-- <style>
+    /* Always set the map height explicitly to define the size of the div
+     * element that contains the map. */
+    .mapa {
+      max-height: 50vh;
+      max-width: 50vh;
+    }
+
+    /* Optional: Makes the sample page fill the window. */
+    iframe{
+      max-height: 100%;
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style> -->
+
+{% block title %}Home {% endblock %}
+{% block content %}
+
+<div class="containers">
+  <div class="divNoticiasOpiniones">
+    <div class="divNoticias">
+
+    </div>
+    <div class="containerOpiniones">
+
+      <div class="containers-btn">
+        <button class="tab-button" data-target="opiniones">Opiniones Recientes</button>
+      </div>
+
+      <section id="opiniones" class="divOpinionesRecientes seccion">
+        
+        {% for opinion in opiniones %}
+        <div class="tarjetaOpinion" style="height: 40vh; width: 80vw;">               
+            <div class="imgOpinion"><img src="{{ opinion.autor.img_perfil.url }}" alt="" style="width: 150px; height: 150px;"></div>
+            <div class="divTituloyopinion" style="height: 10vh; width: 60vw;">
+              <div class="textosOpinion" style="width: 60vw; height: 50px;">
+                <p>{{ opinion.titulo }}</p>
+
+                <div id="votacion">
+                   <!-- el contenedor que tiene la flasheada de las estrelllitas -->
+                   <div class="info">
+                    <div class="emoji"></div>
+                    <div class="status"></div>
+                  </div>
+                  <!-- las estrellitas -->
+                  <div class="stars">
+
+                  {% for i in ''|add:"12345" %}
+                    <div class="star" data-rate="{{ i }}">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                        </polygon>
+                      </svg>
+                    </div>
+                  {% endfor %}
+
+                  </div>
+                </div>
+
+                <p>{{ opinion.fecha }}</p>                        
+              </div>
+              <div class="parrafoOpinion">
+                <p>{{ opinion.contenido }}</p>
+              </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    
+    </section>
+  </div>
+
+  </div>
+    
+    <section id="localizaciones" class="divLocalizaciones seccion">
+        <div>
+          <button class="tab-button" data-target="localizaciones">Localizaciones</button>
+        </div>
+        <div class="listaYmapa">
+                <!-- Lista de botones para cada IFTS -->
+                <ul class="lista">
+                  {% for ifts in instituciones %}
+                    <li><button title="btn-coordenadas" class="iftsBtn" type="button" onclick="setLocation('{{ ifts.coordenadas }}')">{{ ifts.nombre }}</button></li>
+                  {% endfor %}
+                </ul>
+
+            <div id="map" data-key="{{ google_maps_api_key }}" >
+
+            </div>
+        
+        </div>    
+    </section>
+
+</div>
+
+<script src="{% static 'js/script.js' %}"></script>
+
+{% endblock %}

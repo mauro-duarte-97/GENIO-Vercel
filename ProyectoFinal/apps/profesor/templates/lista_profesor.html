@@ -1,0 +1,34 @@
+{% extends "template_base.html" %}
+{% load static %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/lista_profesores.css' %}">
+{% endblock %}
+{% block title %} Lista de Profesores {% endblock %}
+
+
+{% block content %}
+   
+    <section class="seccionDocentes">
+         <h1>Lista de Profesores</h1>
+        <div class="ifts">
+
+        {% for profesor in profesores %}
+
+
+                <div class="tarjetaIfts">
+                    <div class="imgTarjetaIfts"><img src="{{ profesor.img_perfil.url }}" alt=""></div>
+                    <div class="divBotonesTarjeta">
+                        <h2><b>{{ profesor.nombre }}</b></h2>
+                        <p><b>Carrera:</b> {% for carrera in profesor.carrera.all %}{{ carrera }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+                        <p><b>Institución:</b> {% for institucion in profesor.institucion.all %}{{ institucion.nombre }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+                        <!-- <p></p> -->
+                        <a href="{% url 'opiniones_por_entidad' model_name='profesor' entity_id=profesor.id %}"><button id="btnIftsOpiniones">Opiniones</button></a>
+                    </div>
+                </div>
+
+        {% endfor %}
+
+        </div>
+    </section>
+
+{% endblock %}

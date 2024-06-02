@@ -1,0 +1,39 @@
+{% extends "template_base.html" %}
+{% load static %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/lista_instituciones.css' %}">
+{% endblock %}
+{% block title %} Lista de Instituciones {% endblock %}
+
+
+{% block content %}
+   
+    
+    <section class="SeccionIfts">
+         <h1>Lista de Instituciones</h1>
+        <div class="ifts">
+
+        {% for institucion in instituciones %}
+
+            <ul class="ulIfts">
+                <li><a href="{{institucion.url}}">{{ institucion.nombre }}</a>
+
+                <div class="tarjetaIfts">
+                    <div class="imgTarjetaIfts"><img src="{{ institucion.img_perfil.url }}" alt=""></div>
+                    <div class="divBotonesTarjeta">
+                        <a href="{% url 'lista_carreras_instituto' institucion_id=institucion.id %}"><button id="btnIftsCarreras">Carreras</button></a>
+                        <a href="{% url 'lista_profesores_instituto' institucion_id=institucion.id %}"><button id="btnIftsProfesores">Profesores</button></a>
+                        <a href="{% url 'opiniones_por_entidad' model_name='institucion' entity_id=institucion.id %}"><button id="btnIftsOpiniones">Opiniones</button></a>
+                        <div>Puntaje</div>
+                    </div>
+                </div>
+                </li>
+            </ul>
+        {% endfor %}
+
+        </div>
+    </section>
+        
+{% endblock %}
+
+

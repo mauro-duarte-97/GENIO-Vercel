@@ -1,0 +1,18 @@
+{% extends "template_base.html" %}
+
+{% block title %} Lista de alumnos {% endblock %}
+
+{% block content %}
+
+    <h1>Lista de alumnos</h1>
+
+    <ul>
+        {% for alumno in alumnos %}
+
+            <li><a href="{% url 'alumno_detalle' pk=alumno.pk %}">{{ alumno.nombre }}</a></li>
+
+        {% endfor %}
+    </ul>
+
+{% endblock %}
+

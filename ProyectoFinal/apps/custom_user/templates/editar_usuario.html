@@ -1,0 +1,53 @@
+{% extends "template_base.html" %}
+{% load static %}
+{% block title %} Editar Usuario {% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/editar_usuario.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="contenedorEditar">
+    <h1>Editar Usuario</h1>
+    
+    <form method="post" action="{% url 'editar_usuario' usuario.id %}" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="inputEdit">
+            <label for="edit-user">Editar nombre</label>
+            <input type="text" id="updName" name="nombre" value="{{ usuario.nombre }}" required>
+        </div>
+
+        <div class="editImagenProfile">
+            <label for="edit-img">Editar foto de perfil</label>   
+            <img src="{{ usuario.img_perfil.url }}" id="preview_img" alt="Foto de perfil actual">
+            <input type="file" name="img_perfil" id="img_perfil_input"></input>
+        </div>
+        
+        <input class="guardarCambios" type="submit" value="Guardar cambios">
+    </form>
+
+    {% for message in messages %}
+    <div class="mdl-textfield">
+        <p class="error-message">{{ message }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+
+    <script>
+        document.getElementById('img_perfil_input').addEventListener('change', function() {
+            var preview = document.getElementById('preview_img');
+            var file = this.files[0];
+            var reader = new FileReader();
+            
+            reader.onload = function() {
+                preview.src = reader.result;
+            }
+            
+            reader.readAsDataURL(file);
+        });
+    </script>
+    
+{% endblock %}

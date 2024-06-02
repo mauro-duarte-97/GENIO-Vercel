@@ -1,0 +1,40 @@
+{% extends "template_base.html" %}
+{% load static %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/lista_carreras.css' %}">
+{% endblock %}
+{% block title %} Lista de Carreras {% endblock %}
+
+
+{% block content %}
+   
+    
+    <div>
+        <h1>Lista de Carreras</h1>
+        <div class="ifts">
+
+        {% for carrera in carreras %}
+
+            <section class="sectionIfts">
+                <div class="tarjetaIfts">
+                    <div class="imgTarjetaIfts"><img src="{{ carrera.img_perfil.url }}" alt=""></div>
+                    <div class="divBotonesTarjeta">
+                        <h2><b>{{ carrera.nombre }}</b></h2>
+                        <p> Se encuentra en {{ carrera.institucion }} </p>
+                        <a href="{% url 'lista_materias_carrera' carrera_id=carrera.id %}"><button id="btnIftsMaterias">Materias</button></a>
+                        <a href="{% url 'lista_profesores_carrera' carrera_id=carrera.id %}"><button id="btnIftsProfesores">Profesores</button></a>
+                        <a href="{% url 'opiniones_por_entidad' model_name='carrera' entity_id=carrera.id %}"><button id="btnIftsOpiniones">Opiniones</button></a>
+                        <div>Puntaje</div>
+                    </div>
+                </div>
+                </li>
+            </section>
+
+        {% endfor %}
+
+        </div>
+    </div>
+
+        
+{% endblock %}
+
