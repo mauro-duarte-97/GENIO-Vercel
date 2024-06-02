@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 
-ALLOWED_HOSTS = [] #'7886-181-99-163-64.ngrok-free.app'
+ALLOWED_HOSTS = ['.vercel.app'] #
 
 LOCAL_APPS = [
     'apps.auth_user',
@@ -159,7 +159,7 @@ LOGIN_URL = '/auth/login'
 
 
 # Uso de las variables de entorno
-DEBUG = os.getenv('DEBUG') == 'True'
+DEBUG = 'False' #= os.getenv('DEBUG') =
 SECRET_KEY = os.getenv('SECRET_KEY')
 DATABASE_URL = os.getenv('DATABASE_URL')
 GOOGLE_API_KEY_1 = os.environ.get('GOOGLE_API_KEY')
