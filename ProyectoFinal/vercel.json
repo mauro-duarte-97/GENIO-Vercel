@@ -2,16 +2,13 @@
   "version": 2,
   "builds": [
     {
-      "src": "ProyectoFinal/wsgi.py",
+      "src": "ProyectoFinal/ProyectoFinal//wsgi.py",
       "use": "@vercel/python",
       "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
     },
     {
-      "src": "build_files.sh",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "staticfiles_build"
-      }
+      "src": "ProyectoFinal/ProyectoFinal/settings.py",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -21,7 +18,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "ProyectoFinal/wsgi.py"
+      "dest": "ProyectoFinal/ProyectoFinal/wsgi.py"
     }
   ]
 }
