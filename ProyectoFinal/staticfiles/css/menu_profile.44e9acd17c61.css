@@ -1,0 +1,158 @@
+.nav-menu-principal{ 
+    width: auto;
+    top: 0;
+    z-index: 99; 
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 250px; 
+
+}
+
+.div-menu-desplegable{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 80px;
+    position: relative;
+    margin: 0;
+    max-height: 0;
+    
+}
+
+#menu_desplegable{
+    margin: 0%;
+    position: absolute;
+    top: 100%; 
+    background-color: #043652;
+    width: 120px;
+    height: 180px; 
+    display: none;
+    justify-content: space-around;
+    list-style: none;
+    padding: 20px 0;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin-right: 50px;
+    
+}
+
+
+#menu_desplegable li {
+    list-style-type: none; /* Elimina el estilo de lista */
+    transition: background-color 0.5s ease;  
+    width: 100%;
+}
+
+#menu_desplegable  a{
+    cursor: pointer;
+    text-decoration: none; 
+    color: white;
+}
+
+.nav-menu-principal:hover #menu_desplegable{
+    display: flex;
+    
+}
+#menu_desplegable li:hover{
+    background-color: #fc7731;
+}
+
+
+.img_perfil{
+    box-shadow: 0 0 0 5px #001826;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-top: 50px;
+    z-index: 999;
+    margin-right: 50px; 
+    box-shadow: 0px 0px 10px 0.5px #bbc3c6;
+}
+
+  summary {
+    writing-mode: vertical-lr;
+    text-align: center;
+    margin: 0%;
+    display:none;
+    justify-content: center;
+    border-radius: 4px;
+    color: #bbc3c6;
+    cursor: pointer;
+    font-size: 32px;
+    outline: none;
+    transition: transform 200ms ease-in-out 0s;
+  }
+  summary::before,
+  summary::after {
+    position: static;
+    top: 0;
+    left: 0;
+  }
+  summary::before {
+    content: "";
+  }
+  summary::after {
+    content: "III";
+    letter-spacing: -1px;
+  }
+  summary:hover {
+    transform: scale(1.1);
+  }
+  summary::marker {
+    font-size: 0;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  details[open] .menu {
+    animation-name: menuAnim;
+  }
+  details[open] summary::before {
+    content: "X";
+  }
+  details[open] summary::after {
+    content: "";
+  }
+.menuMobile{
+position: fixed;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    width: 200px;
+    height: 200px;
+    background-color: #001826;
+    justify-content: space-around;
+    text-align: center;
+    margin-top: 25px;
+    transform:translateX(-40%);
+
+}
+
+.menuMobile a:hover{
+    border-bottom: 2px solid#bbc3c6 ;
+
+}
+.menuMobile a{
+    text-decoration: none;
+    color:#bbc3c6;
+    margin: 0;
+    padding-bottom: 6px;
+    border-bottom: 2px solid transparent; 
+    transition: border-bottom 0.5s ease;
+}
+
+
+@media (max-width:900px ){
+  .img_perfil{
+    margin-right:0 ;
+  }
+  .nav-menu-principal{ 
+    width: auto; 
+  }
+  #menu_desplegable{
+    margin-right: 0px;
+  }
+}

@@ -1,0 +1,265 @@
+.containers {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  padding: 30px 0;
+  height: auto;
+  text-align: center;
+  /* border: 2px solid green; */
+  background-color: #bbc3c6;
+  align-content: center;
+  justify-content: center;
+  margin: 0%;
+}
+
+.tab-button {
+  background-color: #002c54;
+  color: #bbc3c6;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  padding: 15px;
+  width: 220px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.divNoticiasOpiniones {
+  display: flex;
+  /* border: 2px solid blue; */
+}
+
+.divNoticias {
+  width: 50%;
+  height: auto;
+  /* border: 2px solid red; */
+  background-color: grey;
+}
+
+.containerOpiniones {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  /* border:2px solid yellow; */
+  padding-top: 15px;
+}
+
+.titulo-seccion {
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.seccion {
+  width: 100%;
+}
+
+.tarjetaOpinion {
+  margin: 2%;
+  display: flex;
+  max-height: 150px; 
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background-color: #1e656d;
+
+}
+
+.imgOpinion {
+  width: 18%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border-radius: 20px;
+
+}
+
+.tarjetaOpinion img {
+  width: 90%;
+  height: auto;
+  min-width: 50px;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.divTituloyopinion{
+  width:80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+
+}
+p{
+  color:#bbc3c6;
+
+}
+.textosOpinion {
+  height:100%;
+  display: flex;
+  padding-bottom: 5px;
+  flex-direction: row;
+justify-content: space-around;
+
+}
+.parrafoOpinion{
+  height: 100%;
+  width: 98%;
+  overflow: scroll;
+  overflow-x: hidden;
+  box-shadow: 0 0 5px #bdb7b480 inset;
+  padding: 2px;
+  background-color: #002c54;
+ 
+}
+.parrafoOpinion::-webkit-scrollbar{
+  background-color: transparent;
+  width: 8px;
+  
+  
+}
+.parrafoOpinion::-webkit-scrollbar-thumb{
+  background-color: #fc7731;
+  border-radius: 5px;
+ 
+}
+
+.divLocalizaciones {
+  /* border: 3px solid #001826; */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 50px;
+}
+
+
+.listaYmapa {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  align-content: center;
+  text-align: center;
+  width: 100%;
+  align-items: center;
+}
+
+.lista {
+  overflow-y: scroll;
+  height: 200px;
+  width: 200px;
+padding: 5px;
+  border-radius: 10px;
+  list-style: none;
+}
+.lista li button{
+  margin-top: 5px;
+  cursor: pointer;
+  border: none;
+}
+.lista::-webkit-scrollbar{
+  background-color: transparent;
+  width: 8px;  
+}
+.lista::-webkit-scrollbar-thumb{
+  background-color: #fc7731;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.iftsBtn {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 2px;
+  transition: 0.8s ease;
+}
+.iftsBtn:hover{
+  border: 2px solid #fc7731 ;
+  transform: scale(1.1);
+}
+
+
+iftsBtn
+.mapa {
+  width: 50%;
+  border-radius: 20px;
+  background-color: lightgray;
+  padding: 20px;
+}
+#map {
+  height: 400px;
+  width: 400px;
+  float: right;
+}
+
+#votacion{
+height: 10px;
+}
+
+/* puntaje emogis */
+
+.info {
+  margin-bottom: 1rem;
+}
+.emoji {
+  font-size: 1rem;
+  height: 20px;
+  margin-bottom: 1rem;
+}
+.status {
+  font-size: 2rem;
+  color: honeydew;
+}
+.stars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+.star {
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
+.star svg {
+  fill: none;
+  width: 100%;
+  height: 100%;
+  stroke: none;
+  fill: gray;
+}
+
+.selected svg,
+.selected ~ .star svg {
+  fill: #ffc107;
+}
+.star:hover svg,
+.star:hover ~ .star svg {
+  fill: gold;
+}
+
+@media (max-width: 768px) {
+  .container {
+      flex-direction: column;
+      align-items: center;
+  }
+  .divNoticiasOpiniones{
+    flex-direction: column;
+  }
+  #map {
+    height: 250px;
+    width: 250px;
+    
+  }
+  .divNoticias {
+    width: 100%;
+    height: 50%;
+  }
+  
+  .containerOpiniones {
+    width: 100%;
+    
+  }
+}

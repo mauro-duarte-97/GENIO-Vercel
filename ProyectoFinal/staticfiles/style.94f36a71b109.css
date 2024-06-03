@@ -1,0 +1,281 @@
+html, body{
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif ;
+}
+
+
+
+.loginHome{
+  width: 100%;
+  height: 100vh;
+  background-attachment: fixed;
+  background-image:url("/static/imagenes/Portada/portadaLogin.14f2b112064d.jpg");
+  background-size: cover;
+}
+
+.encabezado{
+  width: 100%;
+  height: 200px;
+  background-color: #001826;
+  display: flex;
+
+}
+
+.logoLogin{
+  width: 10%; 
+  min-width:150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+#imgLogin1{
+  width: 120px;
+  position: absolute;
+}
+#imgLogin2{
+  width: 120px;
+  position: absolute;
+  animation: titileo 2s linear infinite;
+}
+
+.textoLogin{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  height: 100%;
+  margin-right: 30px;
+}
+.textoLogin h1{
+  font-size: 32px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  margin: 0;
+}
+
+.textoLogin h2{
+  font-size: 24px;
+  font-style: italic;
+  font-weight: normal;
+}
+
+/*formulario de login*/
+
+.form-container{
+  
+  width:100%;
+  height: calc(100% - 200px);
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+.loginCardFondo{
+  width: 800px;
+  height: 100%;
+  background-color: #043652b3;
+  color: white;
+  display: flex;
+  margin-left:60px ;
+  padding-left: 60px;
+
+
+}
+.loginFondoTexto{
+  width:40%;
+
+  text-align: center;
+  margin: auto;
+}
+
+.textoNaranja{
+  color:#fc7731
+}
+.card{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 350px;
+  padding: 5px;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #043652;
+  position: relative;
+  transform: translateY(-60px);
+}
+
+  .card h2{
+  color: white;
+}
+
+.formLogin, #registerForm{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 50%;
+  align-items: center;
+  justify-content: space-evenly;
+  
+}
+
+.formLogin input,
+#registerForm input{
+  height: 35px;
+  width: 70%; 
+  overflow: hidden;
+  background-color: #001826; /* Utilizando !important */
+  border:none;
+  box-shadow: none;
+  outline: none;
+
+}
+.formLogin input[type="email"],
+.formLogin input[type="password"]{
+  font-size: 18px;
+  background-color: #001826; /* Utilizando !important */
+  border:none;
+  box-shadow: none;
+  outline: none;
+}
+.formLogin input[type="email"]:focus,
+.formLogin input[type="password"]:focus{
+  font-size: 18px;
+  background-color: #001826 !important; /* Utilizando !important */
+  border:none;
+  box-shadow: none;
+  outline: none;
+}
+#registerForm  input[type="email"],
+#registerForm  input[type="password"]{
+  font-size: 18px;
+  background-color: #001826; /* Utilizando !important */
+  border:none;
+  box-shadow: none;
+  outline: none;
+}
+#registerForm  input[type="email"]:focus,
+#registerForm  input[type="password"]:focus{
+  font-size: 18px;
+  background-color: #001826; /* Utilizando !important */
+  border:none;
+  box-shadow: none;
+  outline: none;
+}
+
+.formLogin button,
+#registerForm button{
+  height: 40px;
+  width: 61%;
+  background-color: #fc7731;
+  font-size: 16px;
+  border:none;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+}
+#googleboton1, #googleboton2{
+  width: 61%;
+  height: 40px;
+  font-size: 16px;
+  background-color: #001826; /* Utilizando !important */
+  border:none;
+  box-shadow: none;
+  outline: none;
+  color:white;
+  cursor: pointer;
+}
+.card p{
+  color: white;
+}
+#toggleButton{
+  font-size: 14px;
+  width: 120px;
+  height: 30px;
+  background-color: transparent;
+  border:none;
+  box-shadow: none;
+  outline: none;
+  color: white;
+  cursor: pointer;
+}
+.overlay {
+  background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro semi-transparente */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+/* Estilo para el cuadro de registro que se muestra encima */
+#registerCard {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 400px;
+  margin: auto;
+  padding: 5px;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #043652;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  z-index: 1000; /* Coloca el cuadro por encima del recuadro oscuro */
+  display: none; /* Ocultar el cuadro de registro inicialmente */
+}
+
+.userType option{
+  width: 200px;
+  height: 50px;
+  font-size: 14px;
+}
+
+@keyframes titileo{
+  from, 50%, to{
+    opacity: 1;
+  }
+  25%, 75%{
+    opacity: 0;
+  }
+}
+
+
+/* //querys */
+@media only screen and (max-width: 767px) {
+  .form-container{
+    height: 100vh;
+  }
+  .loginHome{
+    height: 100%;
+
+  }
+  .encabezado{
+    
+  }
+  
+  .textoLogin{
+    text-align: right;
+  }
+  .textoLogin h1{
+    font-size: 26px;
+  }
+  
+  .textoLogin h2{
+    font-size: 18px;
+  }
+  .loginCardFondo{
+    flex-direction: column;
+    width: 250px;
+  }
+  .loginFondoTexto{
+    width:80%;
+    text-align: center;
+    margin-left:0 ;
+  }
+}

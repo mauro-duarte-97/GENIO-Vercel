@@ -1,0 +1,117 @@
+/* Estilos para el contenedor flex */
+.contenedor-flex {
+    display: flex;   
+    justify-content: space-around;   
+    width:70%;
+    text-align: center;
+    min-width: 300px;
+    background-color: #043652 ;
+    min-height: 600px;
+    align-items: center;
+
+}
+/* img de perfil del contenedor */
+.imgProfileEdit{
+  width: 40%;
+  min-width: 300px;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color:white;
+  transform: translateY(-25%);
+}
+
+.imgProfileEdit img{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  max-height: 50vh;
+  max-width: 60vw;
+}
+.imgProfileEdit a{
+  min-width: 100%;
+}
+/* Estilos para el contenedor del perfil */
+.perfilContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 10px;
+    width: 60%;
+    margin: 0%;
+    padding: 0%;
+    color: white;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* Estilos para el menú */
+.perfilContainer menu {
+    display: block;
+    justify-content: center;
+    text-align: center;
+    width: 90%;
+    padding: 10px;
+    background-color: #001826;
+}
+
+/* Estilos para los elementos del menú */
+.perfilContainer menu a {
+    text-decoration: none;
+    color: black;
+   
+}
+
+/* Estilos para la lista del menú */
+.perfilContainer menu ul {
+    list-style: none;
+    padding: 0;
+    font-size: 0.9em;
+}
+
+/* Estilos para los elementos de la lista del menú */
+.perfilContainer menu ul li {
+    padding: 15px 0;
+    width: 100%;
+}
+
+.btn-editar{
+  background-color: #fc7731;
+  height: 50px;
+  width: 120px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 5px;
+
+}
+
+/* Estilos para el botón */
+/* .perfilContainer button  */
+.btn-eliminar{
+    background-color: rgb(221, 74, 74);
+    height: 50px;
+    width: 120px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+   
+    align-items: center;
+}
+
+@media (max-width: 925px){
+  .contenedor-flex{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .imgProfileEdit{
+    justify-content: center;
+  }
+}
