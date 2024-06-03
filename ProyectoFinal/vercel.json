@@ -1,11 +1,4 @@
 {
-    "builds": [
-      { "src": "manage.py", "use": "@vercel/python" },
-      { 
-        "src": "ProyectoFinal/wsgi.py",
-        "use": "@vercel/python"
-      }
-    ],
     "routes": [
       { "src": "/static/(.*)", "dest": "/static/$1" },
       {
