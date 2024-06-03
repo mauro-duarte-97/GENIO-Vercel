@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'imagenes/Iconos/genioLogo.ico' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/querys.css' %}">
+  </head>
+
+  <body>
+    <main>
+        <section class="loginHome">  
+          <div class="encabezado">
+              <div class="logoLogin">
+                <img id="imgLogin1" src="{% static 'imagenes/Logo/genioLogo.png' %}" alt="">
+                <img id="imgLogin2" src="{% static 'imagenes/Logo/genioLogo2.png' %}" alt="">
+
+              </div>
+              <div class="textoLogin">
+                <h1>G.E.N.I.O</h1>
+                <h2>Guía de Estudiantes Nuevos de IFTS para Orientación</h2>
+              </div>
+            </div>
+         
+        <!-- ///////////////////////////////////// LOGIN /////////////////////////////////////////////-->
+            <div class="form-container">
+              <div class="loginCardFondo">
+                <div class="card" id="loginCard">
+                    <h2>Iniciar Sesión</h2>
+                    <form id="LoginForm" method="post" class="formLogin">
+                        {% csrf_token %}
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="{{ form.username.id_for_label }}"
+                            name="{{ form.username.name }}"
+                            placeholder="Email"
+                            required
+                        />
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="{{ form.password.id_for_label }}"
+                            name="password"
+                            placeholder="Contraseña"
+                            required
+                        />
+                        <button type="submit" id="loginButton">Ingresar</button>
+                    </form>
+
+                    {# Asume que configura la vista de restablecimiento de contraseña en su URLconf #}
+                    <p><a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a></p>
+
+                    {% for message in messages %}
+                    <div class="mdl-textfield">
+                        <p class="error-message">{{ message }}</p>
+                    </div>
+                    {% endfor %}
+
+                  
+                                                                        <!--------------------- GOOGLE LOGIN -------------------------->
+
+                    
+                    <script src="https://accounts.google.com/gsi/client" async defer></script>
+                    <div id="g_id_onload"
+                        data-client_id="1009220251212-nkro9apnh8d27brjpu37sq8v7lhr6cig.apps.googleusercontent.com"
+                        data-ux_mode="redirect"
+                        data-login_uri="https://localhost:8000/auth/login">
+                    </div>
+                    <div class="g_id_signin" data-type="standard"></div>
+                  <button id="toggleButton">O registrate <b>acá</b></button>
+                </div>
+                <div class="loginFondoTexto">
+                  <h1>Toda la información sobre las <span class="textoNaranja">Instituciones de Formación Técnica Superior</span> al alcance de tus manos</h1>
+                </div>
+              </div>
+            </div>
+
+      <!-- ///////////////////////////////////// REGISTRO /////////////////////////////////////////////-->
+            <div class="form-container2" id="conteinerRegistro">
+                 <div class="overlay" id="overlay"></div>
+                 <div class="card" id="registerCard">
+                 
+                    <h2>Registro</h2>
+                    <form id="registerForm" method="post" action="/auth/register/">
+                        {% csrf_token %}
+
+                        <input 
+                          type="email" 
+                          class="form-control" 
+                          id="id_email" 
+                          name="email" 
+                          placeholder="email@example.com" 
+                        />
+
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="id_password1"
+                            name="password1"
+                            placeholder="Contraseña"
+                        />
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="id_password2"
+                            name="password2"
+                            placeholder="Contraseña"
+                        />
+                        <select title="tipo-user" id="userType">
+                            <option value="visitante">Visitante</option>
+                            <option value="alumno">Alumno</option>
+                            <option value="docente">Docente</option>
+                        </select>
+                        <button type="submit" id="registerButton">Crear Cuenta</button>
+                    </form>
+
+                    {% for message in messages %}
+                      <div class="mdl-textfield">
+                          <p class="error-message">{{ message }}</p>
+                      </div>
+                    {% endfor %}
+                    
+                    <p>O regístrate con</p>
+                    <button onclick="google_auth()" id="googleboton2">Ingresá con Google</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>
