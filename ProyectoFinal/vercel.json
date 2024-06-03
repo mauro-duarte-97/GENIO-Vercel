@@ -2,14 +2,47 @@
   "version": 2,
   "builds": [
     {
-      "src": "ProyectoFinal/ProyectoFinal/wsgi.py",
+      "src": "ProyectoFinal/wsgi.py",
       "use": "@vercel/python",
       "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
     },
     {
-      "src": "ProyectoFinal/ProyectoFinal/settings.py",
+      "src": "ProyectoFinal/settings.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "ProyectoFinal/urls.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "ProyectoFinal/views.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "ProyectoFinal/models.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "ProyectoFinal/admin.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "ProyectoFinal/apps.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "ProyectoFinal/forms.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "ProyectoFinal/urls.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "ProyectoFinal/templates",
       "use": "@vercel/static"
     }
+
   ],
   "routes": [
     {
@@ -18,7 +51,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "ProyectoFinal/ProyectoFinal/wsgi.py"
+      "dest": "ProyectoFinal/wsgi.py"
     }
   ]
 }
