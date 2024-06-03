@@ -1,14 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView, LogoutView
-from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter # type: ignore
-from allauth.socialaccount.providers.oauth2.client import OAuth2Client # type: ignore
 from django.views.generic.edit import CreateView
 from apps.custom_user.models import CustomUser
-from django.views import View
 # from .models import AuthUserProfile
 from .forms import RegistrationForm
 from django.contrib import messages
-import urllib.parse
+
 
 class RegisterUsuarioView(CreateView):
     model = CustomUser
