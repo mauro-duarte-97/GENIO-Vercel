@@ -12,11 +12,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-from dotenv import load_dotenv # type: ignore
+# from dotenv import load_dotenv # type: ignore
 
-# Ruta del archivo .env
-env_path = Path('.') / '.env'
-load_dotenv(dotenv_path=env_path)
+# # Ruta del archivo .env
+# env_path = Path('.') / '.env'
+# load_dotenv(dotenv_path=env_path)
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -163,7 +163,7 @@ DEBUG = 'False' #= os.getenv('DEBUG') =
 SECRET_KEY = os.getenv('SECRET_KEY')
 DATABASE_URL = os.getenv('DATABASE_URL')
 GOOGLE_API_KEY_1 = os.environ.get('GOOGLE_API_KEY')
-GOOGLE_API_KEY_2 = os.getenv('GOOGLE_API_KEY')
+# GOOGLE_API_KEY_2 = os.getenv('GOOGLE_API_KEY')
 DJANGO_GOOGLE_OAUTH2_CLIENT_ID = os.getenv('DJANGO_GOOGLE_OAUTH2_CLIENT_ID')
 DJANGO_GOOGLE_OAUTH2_CLIENT_SECRET = os.getenv('DJANGO_GOOGLE_OAUTH2_CLIENT_SECRET')
 DJANGO_GOOGLE_OAUTH2_PROJECT_ID = os.getenv('DJANGO_GOOGLE_OAUTH2_PROJECT_ID')
